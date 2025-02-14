@@ -2,6 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../core/services/products/products.service';
 import { IProduct } from '../../shared/interfaces/iproduct';
+import { CartService } from '../../core/services/cart/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -12,6 +14,8 @@ import { IProduct } from '../../shared/interfaces/iproduct';
 export class DetailsComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly productsService = inject(ProductsService);
+    private readonly cartService = inject(CartService);
+      private readonly toastrService = inject(ToastrService);
   detailsProduct: IProduct | null = null;
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
@@ -23,5 +27,10 @@ export class DetailsComponent implements OnInit {
         });
       }
     })
+  }
+  addCartItem(id: string): void {
+    this.cartService.addProductToCart(id).subscribe({
+      next: (res) => { this.toastrService.success(res.message,'FreshCart') }, error: (err) => { console.log(err) }
+    });
   }
 }

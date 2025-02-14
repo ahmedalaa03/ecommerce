@@ -17,7 +17,7 @@
                         <span class="text-gray-500">{{detailsProduct.ratingsAverage}}</span>
                     </div>
                 </div>
-                <button
+                <button (click)="addCartItem(detailsProduct.id)"
                 class="bg-green-600 text-white py-2 px-10 border rounded w-[90%] mx-auto ">Add
                 To Cart</button>
             </div>
