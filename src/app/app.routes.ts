@@ -65,11 +65,13 @@ export const routes: Routes = [
             {
                 path: 'checkout/:id',
                 title: 'Checkout',
+                data: { renderMode: 'dynamic' },
                 loadComponent: () => import('./pages/checkout/checkout.component').then(m => m.CheckoutComponent)
             },
             {
                 path: 'details/:id',
                 title: 'Details',
+                data: { renderMode: 'dynamic' },
                 loadComponent: () => import('./pages/details/details.component').then(m => m.DetailsComponent)
             }
         ]

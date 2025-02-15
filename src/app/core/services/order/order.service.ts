@@ -11,7 +11,5 @@ export class OrderService {
   constructor(private httpClient:HttpClient) { }
   checkoutSession(id:string,data:object):Observable<any>{
     return this.httpClient.post(environment.baseUrl+`/api/v1/orders/checkout-session/${id}?url=http://localhost:4200`,
-      {"shippingAddress":data},{headers:{token: this.myToken}}
-    )
-  }
+      {"shippingAddress":data})}
 }
