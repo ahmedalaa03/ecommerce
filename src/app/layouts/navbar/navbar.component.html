@@ -14,23 +14,50 @@
         </button>
         <div class="hidden flex-grow w-full md:flex md:w-auto" id="navbar-default">
             @if (isLogin()) {
-                <ul
+            <ul
                 class="capitalize flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li><a routerLink="/home" routerLinkActive="bg-green-600 text-white md:hover:text-white md:hover:text-white"
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page">home</a>
+                <li><a routerLink="/home"
+                        routerLinkActive="bg-green-600 text-white md:hover:text-white md:hover:text-white"
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
+                        aria-current="page">{{'navbar.home'|translate}}</a>
                 </li>
                 <li><a routerLink="/products" routerLinkActive="bg-green-600 text-white md:hover:text-white"
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page">products</a>
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
+                        aria-current="page">{{'navbar.products'|translate}}</a>
                 </li>
                 <li><a routerLink="/categories" routerLinkActive="bg-green-600 text-white md:hover:text-white"
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page">categories</a></li>
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
+                        aria-current="page">{{'navbar.categories'|translate}}</a></li>
                 <li><a routerLink="/brands" routerLinkActive="bg-green-600 text-white md:hover:text-white"
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page">brands</a>
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
+                        aria-current="page">{{'navbar.brands'|translate}}</a>
                 </li>
             </ul>
             }
             <ul
                 class="ms-auto capitalize flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-0 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                        class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">{{'navbar.lang'|translate}}
+                        <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg></button>
+                    <div id="dropdownNavbar"
+                        class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a role="button" (click)="change('en')" [class.hidden]="currentLang('en')"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">EN</a>
+                            </li>
+                            <li>
+                                <a role="button" (click)="change('ar')" [class.hidden]="currentLang('ar')"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">AR</a>
+                            </li>
+                        </ul>    
+                    </div>
+                </li>
                 <li><a href="#" class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
                             class="fa-brands fa-instagram"></i></a></li>
                 <li><a href="#" class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
@@ -44,16 +71,22 @@
                 <li><a href="#" class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
                             class="fa-brands fa-youtube"></i></a></li>
                 @if (!isLogin()) {
-                    <li><a routerLink="/login" routerLinkActive="bg-green-600 text-white md:hover:text-white" class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page">login</a>
-                    </li>
-                    <li><a routerLink="/register" routerLinkActive="bg-green-600 text-white md:hover:text-white" class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page">register</a>
-                    </li>
+                <li><a routerLink="/login" routerLinkActive="bg-green-600 text-white md:hover:text-white"
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
+                        aria-current="page">{{'navbar.login'|translate}}</a>
+                </li>
+                <li><a routerLink="/register" routerLinkActive="bg-green-600 text-white md:hover:text-white"
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
+                        aria-current="page">{{'navbar.register'|translate}}</a>
+                </li>
                 }
                 @else {
-                    <li><a routerLink="cart" routerLinkActive="text-green-600"
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page"><i class="fas fa-cart-shopping text-2xl"></i></a></li>
-                    <li><a role="button" (click)="authService.signOut()" class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-red-800"
-                    aria-current="page">Sign Out</a></li>
+                <li><a routerLink="cart" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page"><i
+                            class="fas fa-cart-shopping text-2xl"></i></a></li>
+                <li><a role="button" (click)="authService.signOut()"
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-red-800"
+                        aria-current="page">{{'navbar.signout'|translate}}</a></li>
                 }
             </ul>
         </div>

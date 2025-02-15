@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
+    rtl:true,
     navSpeed: 700,
     navText: ['', ''],
     items: 1,
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
+    rtl:true,
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
@@ -66,19 +68,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { this.getProductsData(); this.getCategoriesData(); }
   getProductsData(): void {
     this.productsService.getAllProducts().subscribe({
-      next: (res) => { this.products = res.data; },
-      error: (err) => { console.log(err) }
-    })
+      next: (res) => { this.products = res.data; }})
   }
   getCategoriesData(): void {
     this.categoriesService.getAllCategories().subscribe({
-      next: (res) => { this.categories = res.data; },
-      error: (err) => { console.log(err) }
-    })
+      next: (res) => { this.categories = res.data; }})
   }
   addCartItem(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
-      next: (res) => { this.toastrService.success(res.message,'FreshCart') }, error: (err) => { console.log(err) }
-    });
+      next: (res) => { this.toastrService.success(res.message,'FreshCart') }});
   }
 }

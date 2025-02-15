@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel' as owlCarousel;
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default' as owlTheme;
+@use 'ngx-toastr/toastr';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@use 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@use 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-@use 'ngx-toastr/toastr';
 .btn-main{
 @apply disabled:bg-gray-700 bg-green-600 text-white px-10 py-2 rounded hover:bg-green-800 transition-colors duration-500 mt-3;
 }

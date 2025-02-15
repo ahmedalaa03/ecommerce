@@ -1,0 +1,20 @@
+{
+    "navbar": {
+        "home": "Home",
+        "products": "Products",
+        "categories": "Categories",
+        "brands": "Brands",
+        "login": "Login",
+        "register": "Register",
+        "signout": "SignOut",
+        "lang": "Lang"
+    },
+    "login": {
+        "loginNow": "Login Now",
+        "email": "Email",
+        "password": "Password",
+        "login": "Login",
+        "forgotpassword": "Forgot Password",
+        "gohome":"Go Home"
+    }
+}
