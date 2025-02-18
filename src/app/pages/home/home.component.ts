@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { ProductsService } from '../../core/services/products/products.service';
 import { IProduct } from '../../shared/interfaces/iproduct';
 import { CategoriesService } from '../../core/services/categories/categories.service';
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink,SearchPipe,FormsModule],
+  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -22,14 +22,14 @@ export class HomeComponent implements OnInit {
   private readonly categoriesService = inject(CategoriesService);
   private readonly cartService = inject(CartService);
   private readonly toastrService = inject(ToastrService);
-  term:string="";
+  term: string = "";
   customMainSlider: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    rtl:true,
+    rtl: true,
     navSpeed: 700,
     navText: ['', ''],
     items: 1,
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    rtl:true,
+    rtl: true,
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
@@ -63,19 +63,23 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-  products: IProduct[] = [];
-  categories: ICategory[] = [];
+  // products: IProduct[] = [];
+  products: WritableSignal<IProduct[]> = signal([]);
+  categories: WritableSignal<ICategory[]> = signal([]);
   ngOnInit(): void { this.getProductsData(); this.getCategoriesData(); }
   getProductsData(): void {
     this.productsService.getAllProducts().subscribe({
-      next: (res) => { this.products = res.data; }})
+      next: (res) => { this.products.set(res.data); }
+    })
   }
   getCategoriesData(): void {
     this.categoriesService.getAllCategories().subscribe({
-      next: (res) => { this.categories = res.data; }})
+      next: (res) => { this.categories.set(res.data); }
+    })
   }
   addCartItem(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
-      next: (res) => { this.toastrService.success(res.message,'FreshCart'); this.cartService.cartNumber.next(res.numOfCartItems)}});
+      next: (res) => { this.toastrService.success(res.message, 'FreshCart'); this.cartService.cartNumber.set(res.numOfCartItems) }
+    });
   }
 }

@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   }
   removeItem(id: string): void {
     this.cartService.RemoveSpecificCartItem(id).subscribe({
-      next: (res) => { this.cartDetails = res.data; this.cartService.cartNumber.next(res.numOfCartItems) }
+      next: (res) => { this.cartDetails = res.data; this.cartService.cartNumber.set(res.numOfCartItems) }
     });
   }
   updateItem(id: string, count: number): void {
@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
   }
   clearCart(): void {
     this.cartService.clearUserCart().subscribe({
-      next: (res) => { if (res.message === 'success') { this.cartDetails = {} as ICart; this.cartService.cartNumber.next(0) } }
+      next: (res) => { if (res.message === 'success') { this.cartDetails = {} as ICart; this.cartService.cartNumber.set(0) } }
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, input, OnInit, ViewChild } from '@angular/core';
+import { Component, computed, ElementRef, inject, input, InputSignal, OnInit, Signal, ViewChild } from '@angular/core';
 import { FlowbiteService } from '../../core/services/flowbite/flowbite.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth/auth.service';
@@ -19,10 +19,10 @@ export class NavbarComponent implements OnInit{
  private readonly myTranslateService = inject(MyTranslateService);
  private readonly translateService = inject(TranslateService);
  private readonly cartService = inject(CartService);
- isLogin = input<boolean>(true);
+ isLogin:InputSignal<boolean> = input<boolean>(true);
  isLoading:boolean=false;
- countCart!:number;
-  ngOnInit(): void { this.flowbiteService.loadFlowbite(flowbite => { }); this.isLoading=true;this.cartService.cartNumber.subscribe({next:(value)=>{this.countCart = value}}); this.cartService.getLLoggedUserCart().subscribe({next:(res)=>{this.cartService.cartNumber.next(res.numOfCartItems);this.isLoading=false}})}
+ countCart:Signal<number> = computed(()=>this.cartService.cartNumber());
+  ngOnInit(): void { this.flowbiteService.loadFlowbite(flowbite => { }); this.isLoading=true;this.cartService.getLLoggedUserCart().subscribe({next:(res)=>{this.cartService.cartNumber.set(res.numOfCartItems);this.isLoading=false}})}
   change(lang: string): void {
     this.myTranslateService.changeLangTranslate(lang);
     if (this.dropdown) {

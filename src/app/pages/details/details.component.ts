@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
   }
   addCartItem(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
-      next: (res) => { this.toastrService.success(res.message, 'FreshCart'); this.cartService.cartNumber.next(res.numOfCartItems) }
+      next: (res) => { this.toastrService.success(res.message, 'FreshCart'); this.cartService.cartNumber.set(res.numOfCartItems) }
     });
   }
 }
