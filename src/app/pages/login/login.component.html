@@ -2,7 +2,8 @@
     <h1 class="text-3xl font-medium text-center text-green-600">{{'login.loginNow'|translate}}</h1>
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <div class="mb-1">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{'login.email'|translate}}</label>
+            <label for="email"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{'login.email'|translate}}</label>
             <input formControlName="email" type="email" id="email"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
             @if (loginForm.get('email')?.errors&&loginForm.get('email')?.touched) {
@@ -24,7 +25,8 @@
             }
         </div>
         <div class="mb-1">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{'login.password'|translate}}</label>
+            <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{'login.password'|translate}}</label>
             <input formControlName="password" type="password" id="password"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
             @if (loginForm.get('password')?.errors&&loginForm.get('password')?.touched) {
@@ -47,9 +49,9 @@
             }
         </div>
         <a class="block text-green-600" routerLink="/forgotpassword">{{'login.forgotpassword'|translate}}</a>
-        <button [disabled]="loginForm.invalid||isLoading" type="submit" class="btn-main">@if (isLoading) {<i
+        <button [disabled]="loginForm.invalid||isLoading()" type="submit" class="btn-main">@if (isLoading()) {<i
                 class="fa-solid fa-spinner fa-spin"></i>} {{'login.login'|translate}}</button>
-        @if (msgError) {<p class="bg-red-400 text-white px-2 py-4 border">{{msgError}}</p>}
-        @if (success) {<p class="bg-green-400 text-white px-2 py-4 border">{{'login.gohome'|translate}}</p>}
+        @if (msgError()) {<p class="bg-red-400 text-white px-2 py-4 border">{{msgError()}}</p>}
+        @if (success()) {<p class="bg-green-400 text-white px-2 py-4 border">{{'login.gohome'|translate}}</p>}
     </form>
 </section>

@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   private readonly categoriesService = inject(CategoriesService);
   private readonly cartService = inject(CartService);
   private readonly toastrService = inject(ToastrService);
-  term: string = "";
+  term:WritableSignal<string> = signal("");
   customMainSlider: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-  // products: IProduct[] = [];
   products: WritableSignal<IProduct[]> = signal([]);
   categories: WritableSignal<ICategory[]> = signal([]);
   ngOnInit(): void { this.getProductsData(); this.getCategoriesData(); }

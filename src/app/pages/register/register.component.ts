@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,9 +14,9 @@ export class RegisterComponent {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
-  isLoading: boolean = false;
-  msgError: string = '';
-  success: string = '';
+  isLoading:WritableSignal<boolean> = signal(false);
+    msgError:WritableSignal<string> = signal('');
+    success:WritableSignal<string> = signal('');
   registerForm: FormGroup = this.formBuilder.group({
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     email: [null, [Validators.required, Validators.email]],
@@ -33,12 +33,12 @@ export class RegisterComponent {
   // }, { validators: this.confirmPassword });
   submitForm(): void {
     if (this.registerForm.valid) {
-      this.isLoading = true;
+      this.isLoading.set(true);
       this.authService.sendRegisterForm(this.registerForm.value).subscribe({
-        next: (response) => { if (response.message === 'success') { setTimeout(() => { this.router.navigate(['/login']) }, 500); this.success = response.message; this.msgError = ''; }; this.isLoading = false }, error: (error: HttpErrorResponse) => {
+        next: (response) => { if (response.message === 'success') { setTimeout(() => { this.router.navigate(['/login']) }, 500); this.success = response.message; this.msgError.set(''); }; this.isLoading.set(false) }, error: (error: HttpErrorResponse) => {
           this.msgError = error.error.message; setTimeout(() => {
-            this.msgError = '';
-          }, 5000); this.success = ''; this.isLoading = false;
+            this.msgError.set('');
+          }, 5000); this.success.set(''); this.isLoading.set(false);
         }
       })
     } else { this.registerForm.markAllAsTouched(); this.registerForm.get('rePassword')?.setErrors({ 'mismatch': true }); }

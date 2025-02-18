@@ -113,9 +113,9 @@
             </div>
             }
         </div>
-        <button [disabled]="registerForm.invalid||isLoading" type="submit" class="btn-main">@if (isLoading) {<i
+        <button [disabled]="registerForm.invalid||isLoading()" type="submit" class="btn-main">@if (isLoading()) {<i
                 class="fa-solid fa-spinner fa-spin"></i>} Register</button>
-        @if (msgError) {<p class="bg-red-400 text-white px-2 py-4 border">{{msgError}}</p>}
-        @if (success) {<p class="bg-green-400 text-white px-2 py-4 border">Account Created</p>}
+        @if (msgError()) {<p class="bg-red-400 text-white px-2 py-4 border">{{msgError()}}</p>}
+        @if (success()) {<p class="bg-green-400 text-white px-2 py-4 border">Account Created</p>}
     </form>
 </section>

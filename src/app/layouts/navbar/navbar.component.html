@@ -55,7 +55,7 @@
                                 <a role="button" (click)="change('ar')" [class.hidden]="currentLang('ar')"
                                     class="block px-4 py-2 hover:bg-gray-100">AR</a>
                             </li>
-                        </ul>    
+                        </ul>
                     </div>
                 </li>
                 <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
@@ -82,11 +82,13 @@
                 }
                 @else {
                 <li><a routerLink="cart" routerLinkActive="text-green-600"
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600 relative" aria-current="page"><i
-                            class="fas fa-cart-shopping text-2xl"></i>
-                            <span class="inline-flex items-center rounded-lg bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset absolute top-0 left-0">@if (isLoading) {<i
-                                class="fa-solid fa-spinner text-xs fa-spin"></i>}@if(!isLoading){{{countCart()}}}</span>
-                        </a></li>
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600 relative"
+                        aria-current="page"><i class="fas fa-cart-shopping text-2xl"></i>
+                        <span
+                            class="inline-flex items-center rounded-lg bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset absolute top-0 left-0">@if
+                            (isLoading()) {<i
+                                class="fa-solid fa-spinner text-xs fa-spin"></i>}@if(!isLoading()){{{countCart()}}}</span>
+                    </a></li>
                 <li><a role="button" (click)="authService.signOut()"
                         class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-red-800"
                         aria-current="page">{{'navbar.signout'|translate}}</a></li>
