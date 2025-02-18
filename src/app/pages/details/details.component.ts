@@ -14,15 +14,15 @@ import { ToastrService } from 'ngx-toastr';
 export class DetailsComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly productsService = inject(ProductsService);
-    private readonly cartService = inject(CartService);
-      private readonly toastrService = inject(ToastrService);
+  private readonly cartService = inject(CartService);
+  private readonly toastrService = inject(ToastrService);
   detailsProduct: IProduct | null = null;
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
       next: (p) => {
         let idProduct = p.get('id');
-       this.productsService.getSpecificProduct(idProduct).subscribe({
-          next: (res) => { this.detailsProduct = res.data},
+        this.productsService.getSpecificProduct(idProduct).subscribe({
+          next: (res) => { this.detailsProduct = res.data },
           error: (err) => { console.log(err); }
         });
       }
@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
   }
   addCartItem(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
-      next: (res) => { this.toastrService.success(res.message,'FreshCart') }, error: (err) => { console.log(err) }
+      next: (res) => { this.toastrService.success(res.message, 'FreshCart'); this.cartService.cartNumber.next(res.numOfCartItems) }
     });
   }
 }

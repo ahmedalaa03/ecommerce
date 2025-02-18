@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class CartService {
   constructor(private httpClient: HttpClient) { }
   myToken: any = localStorage.getItem('userToken');
+  cartNumber:BehaviorSubject<number> = new BehaviorSubject(0);
   addProductToCart(id: string): Observable<any> {
     return this.httpClient.post(environment.baseUrl+'/api/v1/cart', { "productId": id });
   }
