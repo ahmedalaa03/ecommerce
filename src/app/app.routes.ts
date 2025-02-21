@@ -53,6 +53,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./pages/brands/brands.component').then(m => m.BrandsComponent)
             },
             {
+                path: 'wishlist',
+                title: 'Wishlist',
+                loadComponent: () => import('./pages/wishlist/wishlist.component').then(m => m.WishlistComponent)
+            },
+            {
                 path: 'categories',
                 title: 'Categories',
                 loadComponent: () => import('./pages/categories/categories.component').then(m => m.CategoriesComponent)

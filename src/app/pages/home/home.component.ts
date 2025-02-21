@@ -9,11 +9,13 @@ import { CartService } from '../../core/services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { SearchPipe } from '../../shared/pipes/search/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
+import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule],
+  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule, CurrencyPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -22,7 +24,9 @@ export class HomeComponent implements OnInit {
   private readonly categoriesService = inject(CategoriesService);
   private readonly cartService = inject(CartService);
   private readonly toastrService = inject(ToastrService);
-  term:WritableSignal<string> = signal("");
+  private readonly wishlistService = inject(WishlistService);
+  term: WritableSignal<string> = signal("");
+  isWishlisted: { [key: string]: boolean } = {};
   customMainSlider: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -65,7 +69,7 @@ export class HomeComponent implements OnInit {
   }
   products: WritableSignal<IProduct[]> = signal([]);
   categories: WritableSignal<ICategory[]> = signal([]);
-  ngOnInit(): void { this.getProductsData(); this.getCategoriesData(); }
+  ngOnInit(): void { this.getProductsData(); this.getCategoriesData(); this.getWishlistData(); }
   getProductsData(): void {
     this.productsService.getAllProducts().subscribe({
       next: (res) => { this.products.set(res.data); }
@@ -79,6 +83,31 @@ export class HomeComponent implements OnInit {
   addCartItem(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
       next: (res) => { this.toastrService.success(res.message, 'FreshCart'); this.cartService.cartNumber.set(res.numOfCartItems) }
+    });
+  }
+  addWishlistItem(id: string): void {
+    this.isWishlisted[id] = true;
+    this.wishlistService.addProductToWishlist(id).subscribe({
+      next: (res) => { this.toastrService.success(res.message, 'FreshCart'); }
+    })
+  }
+  removeWishlistItem(id: string): void {
+    this.isWishlisted[id] = false;
+    this.wishlistService.RemoveProductFromWishlist(id).subscribe({
+      next: (res) => { this.toastrService.success(res.message, 'FreshCart'); }
+    })
+  }
+  getWishlistData(): void {
+    this.wishlistService.getLoggedUserWishlist().subscribe({
+      next: (res) => {
+        if (res.data) {
+          this.isWishlisted = {};
+          res.data.forEach((item: any) => {
+            if (item.id) { this.isWishlisted[item.id] = true; }
+            else if (item.product && item.product.id) { this.isWishlisted[item.product.id] = true; }
+          });
+        }
+      }
     });
   }
 }

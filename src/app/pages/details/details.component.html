@@ -11,7 +11,7 @@
                 <p class="text-slate-600 my-4">{{ detailsProduct.description }}</p>
                 <h3>{{detailsProduct.category.name}}</h3>
                 <div class="flex justify-between items-center w-[90%]">
-                    <span>{{detailsProduct.price}} EGP</span>
+                    <span>{{detailsProduct.price | currency:'GBP'}}</span>
                     <div class="flex items-center">
                         <i class="fas fa-star text-yellow-300"></i>
                         <span class="text-gray-500">{{detailsProduct.ratingsAverage}}</span>
