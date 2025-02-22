@@ -1,6 +1,6 @@
 @if(detailsProduct){
 <section>
-    <h1 class="text-4xl my-3 text-center text-green-600"> Details Product</h1>
+    <h1 class="text-4xl my-3 text-center text-green-600">{{'details.detailsproduct'|translate}}</h1>
     <div class="grid md:grid-cols-[25%_75%] items-center">
         <div>
             <img [src]="detailsProduct.imageCover" class="w-full" [alt]="detailsProduct.title">
@@ -18,8 +18,7 @@
                     </div>
                 </div>
                 <button (click)="addCartItem(detailsProduct.id)"
-                class="bg-green-600 text-white py-2 px-10 border rounded w-[90%] mx-auto ">Add
-                To Cart</button>
+                class="bg-green-600 text-white py-2 px-10 border rounded w-[90%] mx-auto ">{{'details.addtocart'|translate}}</button>
             </div>
         </div>
     </div>

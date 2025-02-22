@@ -5,6 +5,7 @@ import { AuthService } from '../../core/services/auth/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MyTranslateService } from '../../core/services/myTraslate/my-translate.service';
 import { CartService } from '../../core/services/cart/cart.service';
+import { Collapse } from 'flowbite';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ import { CartService } from '../../core/services/cart/cart.service';
 })
 export class NavbarComponent implements OnInit {
   constructor(private flowbiteService: FlowbiteService) { }
-  @ViewChild('dropdownNavbar') dropdown!: ElementRef;
+  @ViewChild('dropdownNavbar') dropdownEL!: ElementRef;
   readonly authService = inject(AuthService);
   private readonly myTranslateService = inject(MyTranslateService);
   private readonly translateService = inject(TranslateService);
@@ -25,9 +26,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void { this.flowbiteService.loadFlowbite(flowbite => { }); if (this.isLogin()) { this.isLoading.set(true); this.cartService.getLLoggedUserCart().subscribe({ next: (res) => { this.cartService.cartNumber.set(res.numOfCartItems); this.isLoading.set(false) } }) } }
   change(lang: string): void {
     this.myTranslateService.changeLangTranslate(lang);
-    if (this.dropdown) {
-      this.dropdown.nativeElement.classList.add('hidden');
-    }
+      new Collapse(this.dropdownEL.nativeElement).collapse();
   }
   currentLang(lang: string): boolean {
     return this.translateService.currentLang === lang

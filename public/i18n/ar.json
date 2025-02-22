@@ -4,18 +4,107 @@
         "products": "المنتجات",
         "categories": "الفئات",
         "brands": "العلامات التجارية",
-        "wishlist": "قائمة الرغبات",
         "login": "تسجيل الدخول",
-        "register": "إنشاء حساب",
+        "register": "التسجيل",
         "signout": "تسجيل الخروج",
         "lang": "اللغة"
     },
     "login": {
         "loginNow": "تسجيل الدخول الآن",
         "email": "البريد الإلكتروني",
+        "emailisrequired": "البريد الإلكتروني مطلوب",
+        "entervalidemail": "أدخل بريدًا إلكترونيًا صالحًا",
         "password": "كلمة المرور",
+        "passwordisrequired": "كلمة المرور مطلوبة",
+        "passwordstarts": "تبدأ كلمة المرور بحرف كبير ثم 7 أحرف",
         "login": "تسجيل الدخول",
-        "forgotpassword": "نسيت كلمة المرور ؟",
-        "gohome":"الذهاب الي الرئيسية"
+        "forgotpassword": "هل نسيت كلمة المرور؟",
+        "gohome": "العودة إلى الرئيسية"
+    },
+    "home": {
+        "popularcategories": "الفئات الشائعة",
+        "popularproducts": "المنتجات الشائعة",
+        "addtocart": "أضف إلى السلة",
+        "searchbyname": "البحث بالأسم"
+    },
+    "brands": {
+        "allbrands": "جميع العلامات التجارية"
+    },
+    "cart": {
+        "shopcart": "عربة التسوق",
+        "clearcart": "إفراغ السلة",
+        "remove": "إزالة",
+        "payment": "الدفع",
+        "totalcartprice": "السعر الإجمالي للسلة :"
+    },
+    "categories": {
+        "allcategories": "جميع الفئات"
+    },
+    "checkout": {
+        "checkout": "الدفع",
+        "details": "التفاصيل",
+        "phone": "الهاتف",
+        "city": "المدينة",
+        "onlinepayment": "الدفع الإلكتروني"
+    },
+    "details": {
+        "detailsproduct": "تفاصيل المنتج",
+        "addtocart": "أضف إلى السلة"
+    },
+    "forgotpassword": {
+        "forgotpassword": "نسيت كلمة المرور",
+        "email": "البريد الإلكتروني",
+        "emailisrequired": "البريد الإلكتروني مطلوب",
+        "entervalidemail": "أدخل بريدًا إلكترونيًا صالحًا",
+        "sendcode": "إرسال الرمز",
+        "resetcode": "إعادة تعيين الرمز",
+        "codeisrequired": "الرمز مطلوب",
+        "codeshould": "يجب أن يكون الرمز مكونًا من 6 أحرف",
+        "verifycode": "تحقق من الرمز",
+        "passwordisrequired": "كلمة المرور مطلوبة",
+        "passwordstarts": "تبدأ كلمة المرور بحرف كبير ثم 7 أحرف",
+        "resetpassword": "إعادة تعيين كلمة المرور",
+        "gohome": "العودة إلى الرئيسية"
+    },
+    "notfound": {
+        "backtosite": "العودة إلى الموقع"
+    },
+    "products": {
+        "allproducts": "جميع المنتجات",
+        "addtocart": "أضف إلى السلة",
+        "searchbyname": "البحث بالأسم"
+    },
+    "register": {
+        "registernow": "سجل الآن",
+        "name": "الاسم",
+        "nameisrequired": "الاسم مطلوب",
+        "nameminlength": "الحد الأدنى لطول الاسم: 3",
+        "namemaxlength": "الحد الأقصى لطول الاسم: 20",
+        "email": "البريد الإلكتروني",
+        "emailisrequired": "البريد الإلكتروني مطلوب",
+        "entervalidemail": "أدخل بريدًا إلكترونيًا صالحًا",
+        "passwordisrequired": "كلمة المرور مطلوبة",
+        "passwordstarts": "تبدأ كلمة المرور بحرف كبير ثم 7 أحرف",
+        "password": "كلمة المرور",
+        "repassword": "إعادة كلمة المرور",
+        "passwordconfirmation": "تأكيد كلمة المرور غير صحيح",
+        "phone": "رقم الهاتف",
+        "phoneisrequired": "رقم الهاتف مطلوب",
+        "entervalidphone": "أدخل رقم هاتف صالح",
+        "register": "تسجيل",
+        "accountcreated": "تم إنشاء الحساب"
+    },
+    "wishlist": {
+        "wishlist": "قائمة الرغبات",
+        "addtocart": "أضف إلى السلة",
+        "remove": "إزالة"
+    },
+    "footer": {
+        "getthefreshcartapp": "احصل على تطبيق FreshCart",
+        "wewill": "سنرسل لك رابطًا، افتحه على هاتفك لتنزيل التطبيق",
+        "shareapplink": "مشاركة رابط التطبيق",
+        "paymentpartners": "شركاء الدفع",
+        "getdeliveries": "احصل على التوصيل مع FreshCart",
+        "email": "البريد الإلكتروني"
     }
 }

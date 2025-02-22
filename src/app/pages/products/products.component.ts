@@ -8,10 +8,11 @@ import { SearchPipe } from '../../shared/pipes/search/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
-  imports: [RouterLink, SearchPipe, FormsModule, CurrencyPipe],
+  imports: [RouterLink, SearchPipe, FormsModule, CurrencyPipe,TranslatePipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })

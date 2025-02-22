@@ -5,10 +5,11 @@ import { IProduct } from '../../shared/interfaces/iproduct';
 import { CartService } from '../../core/services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyPipe } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-details',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe,TranslatePipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })

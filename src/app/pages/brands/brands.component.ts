@@ -1,10 +1,11 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { BrandsService } from '../../core/services/brands/brands.service';
 import { IBrand } from '../../shared/interfaces/ibrand';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-brands',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.scss'
 })

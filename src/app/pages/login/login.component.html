@@ -17,8 +17,8 @@
                 <span class="sr-only">Danger</span>
                 <div>
                     <ul class="mt-1.5 list-disc list-inside">
-                        @if (loginForm.get('email')?.getError('required')) {<li>email is required</li>}
-                        @else if (loginForm.get('email')?.getError('email')) {<li>enter valid email</li>}
+                        @if (loginForm.get('email')?.getError('required')) {<li>{{'login.emailisrequired'|translate}}</li>}
+                        @else if (loginForm.get('email')?.getError('email')) {<li>{{'login.entervalidemail'|translate}}</li>}
                     </ul>
                 </div>
             </div>
@@ -40,9 +40,8 @@
                 <span class="sr-only">Danger</span>
                 <div>
                     <ul class="mt-1.5 list-disc list-inside">
-                        @if (loginForm.get('password')?.getError('required')) {<li>password is required</li>}
-                        @else if (loginForm.get('password')?.getError('pattern')) {<li>password start with capital
-                            letters then 7 charcters</li>}
+                        @if (loginForm.get('password')?.getError('required')) {<li>{{'login.passwordisrequired'|translate}}</li>}
+                        @else if (loginForm.get('password')?.getError('pattern')) {<li>{{'login.passwordstarts'|translate}}</li>}
                     </ul>
                 </div>
             </div>

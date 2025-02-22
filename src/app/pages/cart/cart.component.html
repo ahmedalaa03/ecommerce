@@ -1,8 +1,7 @@
 <section class="m-sec-style w-[75%] mx-auto">
-    <h1 class="text-center text-green-600 text-4xl">Shop Cart</h1>
-    <h3 class="text-green-600">Total Cart Price : {{cartDetails.totalCartPrice | currency:'GBP'}}</h3>
-    <button (click)="clearCart()" class="text-xs bg-red-900 text-white rounded px-6 py-1 block ms-auto">Clear
-        Cart</button>
+    <h1 class="text-center text-green-600 text-4xl">{{'cart.shopcart'|translate}}</h1>
+    <h3 class="text-green-600">{{'cart.totalcartprice'|translate}}{{cartDetails.totalCartPrice | currency:'GBP'}}</h3>
+    <button (click)="clearCart()" class="text-xs bg-red-900 text-white rounded px-6 py-1 block ms-auto">{{'cart.clearcart'|translate}}</button>
     @for (prod of cartDetails.products; track prod.product.id) {
     <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 border-b">
         <div> <img [src]="prod.product.imageCover" class="w-full h-[100px] object-contain" [alt]="prod.product.title">
@@ -12,7 +11,7 @@
                 <h3>{{prod.product.title}}</h3>
                 <h4 class="text-green-500">Price : {{prod.price | currency:'GBP'}}</h4>
                 <button (click)="removeItem(prod.product.id)"><i class="fas fa-trash-can text-green-600"></i>
-                    Remove</button>
+                    {{'cart.remove'|translate}}</button>
             </div>
             <div class="flex items-center gap-3">
                 <button (click)="updateItem(prod.product.id, prod.count + 1)" class="text-3xl text-green-600"><i
@@ -25,5 +24,5 @@
         </div>
     </div>
     }
-    <button [routerLink]="['/checkout',cartDetails._id]" class="btn-main">Payment</button>
+    <button [routerLink]="['/checkout',cartDetails._id]" class="btn-main">{{'cart.payment'|translate}}</button>
 </section>

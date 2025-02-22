@@ -11,11 +11,12 @@ import { SearchPipe } from '../../shared/pipes/search/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule, CurrencyPipe],
+  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule, CurrencyPipe,TranslatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -4,7 +4,6 @@
         "products": "Products",
         "categories": "Categories",
         "brands": "Brands",
-        "wishlist": "Wishlist",
         "login": "Login",
         "register": "Register",
         "signout": "SignOut",
@@ -13,9 +12,99 @@
     "login": {
         "loginNow": "Login Now",
         "email": "Email",
+        "emailisrequired": "Email is required",
+        "entervalidemail": "Enter valid email",
         "password": "Password",
+        "passwordisrequired": "Password is required",
+        "passwordstarts": "Password starts with capital letters then 7 charcters",
         "login": "Login",
         "forgotpassword": "Forgot Password ?",
-        "gohome":"Go Home"
+        "gohome": "Go Home"
+    },
+    "home": {
+        "popularcategories": "Popular Categories",
+        "popularproducts": "Popular Products",
+        "addtocart": "Add To Cart",
+        "searchbyname": "Search By Name"
+    },
+    "brands": {
+        "allbrands": "All Brands"
+    },
+    "cart": {
+        "shopcart": "Shop Cart",
+        "clearcart": "Clear Cart",
+        "remove": "Remove",
+        "payment": "Payment",
+        "totalcartprice": "Total Cart Price : "
+    },
+    "categories": {
+        "allcategories": "All Categories"
+    },
+    "checkout": {
+        "checkout": "CheckOut",
+        "details": "Details",
+        "phone": "Phone",
+        "city": "City",
+        "onlinepayment": "Online Payment"
+    },
+    "details": {
+        "detailsproduct": "Details Product",
+        "addtocart": "Add To Cart"
+    },
+    "forgotpassword": {
+        "forgotpassword": "Forgot Password",
+        "email": "Email",
+        "emailisrequired": "Email is required",
+        "entervalidemail": "Enter valid email",
+        "sendcode": "Send Code",
+        "resetcode": "Reset Code",
+        "codeisrequired": "Code is required",
+        "codeshould": "Code should be 6 characters",
+        "verifycode": "Verify Code",
+        "passwordisrequired": "Password is required",
+        "passwordstarts": "Password starts with capital letters then 7 charcters",
+        "resetpassword": "Reset Password",
+        "gohome": "Go Home"
+    },
+    "notfound": {
+        "backtosite": "Back To Site"
+    },
+    "products": {
+        "allproducts": "All Products",
+        "addtocart": "Add To Cart",
+        "searchbyname": "Search By Name"
+    },
+    "register": {
+        "registernow": "Register Now",
+        "name": "Name",
+        "nameisrequired": "Name is required",
+        "nameminlength": "Name minLength : 3",
+        "namemaxlength": "Name maxLength : 20",
+        "email": "Email",
+        "emailisrequired": "Email is required",
+        "entervalidemail": "Enter valid email",
+        "passwordisrequired": "Password is required",
+        "passwordstarts": "Password starts with capital letters then 7 charcters",
+        "password": "Password",
+        "repassword": "Repassword",
+        "passwordconfirmation": "Password confirmation is incorrect",
+        "phone": "Phone",
+        "phoneisrequired": "Phone is required",
+        "entervalidphone": "Enter valid phone",
+        "register": "Register",
+        "accountcreated": "Account Created"
+    },
+    "wishlist": {
+        "wishlist": "Wishlist",
+        "addtocart": "Add To Cart",
+        "remove": "Remove"
+    },
+    "footer": {
+        "getthefreshcartapp": "Get The FreshCart App",
+        "wewill": "We Will Send You a Link, Open it on Your Phone to download the app",
+        "shareapplink": "Share App Link",
+        "paymentpartners": "Payment partners",
+        "getdeliveries": "Get Deliveries with FreshCart",
+        "email": "Email"
     }
 }
