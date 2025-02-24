@@ -35,7 +35,8 @@
         "clearcart": "إفراغ السلة",
         "remove": "إزالة",
         "payment": "الدفع",
-        "totalcartprice": "السعر الإجمالي للسلة :"
+        "totalcartprice": "السعر الإجمالي للسلة",
+        "price": "السعر"
     },
     "categories": {
         "allcategories": "جميع الفئات"
@@ -106,5 +107,16 @@
         "paymentpartners": "شركاء الدفع",
         "getdeliveries": "احصل على التوصيل مع FreshCart",
         "email": "البريد الإلكتروني"
+    },
+    "allorders": {
+        "allorders": "كل الطلبات",
+        "totalorderprice": "إجمالي سعر الطلب",
+        "isdelivered": "هل تم التوصيل؟",
+        "ispaid": "هل تم الدفع؟",
+        "price": "السعر",
+        "count": "العدد",
+        "paymentmethodtype": "نوع طريقة الدفع",
+        "orderinfo": "معلومات الطلب",
+        "gohome": "العودة إلى الصفحة الرئيسية"
     }
 }

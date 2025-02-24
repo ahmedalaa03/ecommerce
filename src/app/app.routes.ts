@@ -5,11 +5,12 @@ import { authGuard } from './core/guards/auth/auth.guard';
 import { logedGuard } from './core/guards/loged/loged.guard';
 
 export const routes: Routes = [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
         path: '',
         component: AuthLayoutComponent, canActivate: [logedGuard],
         children: [
-            { path: '', redirectTo: 'login', pathMatch: 'full' },
+            
             {
                 path: 'login',
                 title: 'Login',
@@ -31,7 +32,7 @@ export const routes: Routes = [
         path: '',
         component: BlankLayoutComponent, canActivate: [authGuard],
         children: [
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            
             {
                 path: 'home',
                 title: 'Home',

@@ -1,9 +1,9 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../core/services/auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthService } from '../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -25,13 +25,6 @@ export class RegisterComponent {
     rePassword: [null, [Validators.required]],
     phone: [null, [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]]
   }, { validators: this.confirmPassword });
-  // registerForm: FormGroup = new FormGroup({
-  //   name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-  //   email: new FormControl(null, [Validators.required, Validators.email]),
-  //   password: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z]\w{7,}$/)]),
-  //   rePassword: new FormControl(null, [Validators.required]),
-  //   phone: new FormControl(null, [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)])
-  // }, { validators: this.confirmPassword });
   submitForm(): void {
     if (this.registerForm.valid) {
       this.isLoading.set(true);

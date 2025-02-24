@@ -50,7 +50,5 @@
         <a class="block text-green-600" routerLink="/forgotpassword">{{'login.forgotpassword'|translate}}</a>
         <button [disabled]="loginForm.invalid||isLoading()" type="submit" class="btn-main">@if (isLoading()) {<i
                 class="fa-solid fa-spinner fa-spin"></i>} {{'login.login'|translate}}</button>
-        @if (msgError()) {<p class="bg-red-400 text-white px-2 py-4 border">{{msgError()}}</p>}
-        @if (success()) {<p class="bg-green-400 text-white px-2 py-4 border">{{'login.gohome'|translate}}</p>}
     </form>
 </section>

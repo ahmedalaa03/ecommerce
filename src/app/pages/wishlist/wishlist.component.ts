@@ -1,10 +1,10 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 import { CurrencyPipe } from '@angular/common';
-import { CartService } from '../../core/services/cart/cart.service';
-import { ToastrService } from 'ngx-toastr';
-import { IWishlist } from '../../shared/interfaces/iwishlist';
+import { Component, inject, OnInit } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/cart/cart.service';
+import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { IWishlist } from '../../shared/interfaces/iwishlist';
 
 @Component({
   selector: 'app-wishlist',

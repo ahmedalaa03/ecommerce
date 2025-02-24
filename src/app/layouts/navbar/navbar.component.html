@@ -12,7 +12,7 @@
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
         </button>
-        <div class="hidden flex-grow w-full md:flex md:w-auto" id="navbar-default justify-center items-center">
+        <div class="hidden flex-grow w-full md:flex md:w-auto justify-center items-center" id="navbar-default">
             @if (isLogin()) {
             <ul
                 class="justify-center items-center capitalize flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -58,20 +58,20 @@
                         </ul>
                     </div>
                 </li>
-                <div class="grid grid-cols-6 md:grid-rows-1">
-                <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
-                            class="fa-brands fa-instagram"></i></a></li>
-                <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
-                            class="fa-brands fa-facebook"></i></a></li>
-                <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
-                            class="fa-brands fa-tiktok"></i></a></li>
-                <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
-                            class="fa-brands fa-twitter"></i></a></li>
-                <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
-                            class="fa-brands fa-linkedin"></i></a></li>
-                <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
-                            class="fa-brands fa-youtube"></i></a></li>
-                    </div>        
+                <div class="flex justify-center">
+                    <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
+                                class="fa-brands fa-instagram"></i></a></li>
+                    <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
+                                class="fa-brands fa-facebook"></i></a></li>
+                    <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
+                                class="fa-brands fa-tiktok"></i></a></li>
+                    <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
+                                class="fa-brands fa-twitter"></i></a></li>
+                    <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
+                                class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a class="block py-2 px-3 rounded-lg text-gray-700" aria-current="page"><i
+                                class="fa-brands fa-youtube"></i></a></li>
+                </div>
                 @if (!isLogin()) {
                 <li><a routerLink="/login" routerLinkActive="bg-green-600 text-white md:hover:text-white"
                         class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
@@ -83,9 +83,10 @@
                 </li>
                 }
                 @else {
-                    <li><a routerLink="/wishlist" routerLinkActive="text-green-600 "
-                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600"
-                        aria-current="page"><i class="fa-solid fa-heart text-3xl"></i></a>
+                    <div class="flex justify-center">
+                <li><a routerLink="/wishlist" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600" aria-current="page"><i
+                            class="fa-solid fa-heart text-3xl"></i></a>
                 </li>
                 <li><a routerLink="cart" routerLinkActive="text-green-600"
                         class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-green-600 relative"
@@ -95,6 +96,7 @@
                             (isLoading()) {<i
                                 class="fa-solid fa-spinner text-xs fa-spin"></i>}@if(!isLoading()){{{countCart()}}}</span>
                     </a></li>
+                    </div>
                 <li><a role="button" (click)="authService.signOut()"
                         class="block py-2 px-3 rounded-lg text-gray-700 md:hover:text-red-800"
                         aria-current="page">{{'navbar.signout'|translate}}</a></li>

@@ -1,1 +1,25 @@
-<p>allorders works!</p>
+<section class="m-sec-style w-[75%] mx-auto">
+    <h1 class="text-center text-green-600 text-4xl">{{'allorders.allorders'|translate}}</h1>
+
+    @for (order of allOrders; track $index) {
+        <div class="my-5 text-center border-t-8 border-green-600 pt-5">
+            <h2  class="text-green-600 text-xl font-medium">{{'allorders.orderinfo'|translate}}</h2>
+            <p>{{'allorders.totalorderprice'|translate}}: {{order.totalOrderPrice| currency:'GBP'}}</p>
+            <p>{{'allorders.isdelivered'|translate}}: {{order.isDelivered}}</p>
+            <p>{{'allorders.ispaid'|translate}}: {{order.isPaid}}</p>
+            <p>{{'allorders.paymentmethodtype'|translate}}: {{order.paymentMethodType}}</p>
+        </div>
+    @for (item of order.cartItems; track $index) {
+    <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 border-b">
+        <div> <img [src]="item.product.imageCover" class="w-full h-[100px] object-contain" [alt]="item.product.title">
+        </div>
+        <div>
+            <h3 class="text-green-500 text-xl">{{item.product.title}}</h3>
+            <h4>{{'allorders.price'|translate}}: {{item.price| currency:'GBP'}}</h4>
+            <p>{{'allorders.count'|translate}}: {{item.count}}</p>
+        </div>
+    </div>
+    }
+    }
+    <button [routerLink]="['/home']" class="btn-main">{{'allorders.gohome'|translate}}</button>
+</section>

@@ -1,14 +1,14 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { ProductsService } from '../../core/services/products/products.service';
-import { CartService } from '../../core/services/cart/cart.service';
-import { IProduct } from '../../shared/interfaces/iproduct';
-import { ToastrService } from 'ngx-toastr';
-import { RouterLink } from '@angular/router';
-import { SearchPipe } from '../../shared/pipes/search/search.pipe';
-import { FormsModule } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
-import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/cart/cart.service';
+import { ProductsService } from '../../core/services/products/products.service';
+import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { IProduct } from '../../shared/interfaces/iproduct';
+import { SearchPipe } from '../../shared/pipes/search/search.pipe';
 
 @Component({
   selector: 'app-products',

@@ -1,17 +1,17 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { ProductsService } from '../../core/services/products/products.service';
-import { IProduct } from '../../shared/interfaces/iproduct';
-import { CategoriesService } from '../../core/services/categories/categories.service';
-import { ICategory } from '../../shared/interfaces/icategory';
-import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { RouterLink } from '@angular/router';
-import { CartService } from '../../core/services/cart/cart.service';
-import { ToastrService } from 'ngx-toastr';
-import { SearchPipe } from '../../shared/pipes/search/search.pipe';
-import { FormsModule } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
-import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/cart/cart.service';
+import { CategoriesService } from '../../core/services/categories/categories.service';
+import { ProductsService } from '../../core/services/products/products.service';
+import { WishlistService } from '../../core/services/wishlist/wishlist.service';
+import { ICategory } from '../../shared/interfaces/icategory';
+import { IProduct } from '../../shared/interfaces/iproduct';
+import { SearchPipe } from '../../shared/pipes/search/search.pipe';
 
 
 @Component({

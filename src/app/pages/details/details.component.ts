@@ -1,11 +1,11 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/cart/cart.service';
 import { ProductsService } from '../../core/services/products/products.service';
 import { IProduct } from '../../shared/interfaces/iproduct';
-import { CartService } from '../../core/services/cart/cart.service';
-import { ToastrService } from 'ngx-toastr';
-import { CurrencyPipe } from '@angular/common';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-details',

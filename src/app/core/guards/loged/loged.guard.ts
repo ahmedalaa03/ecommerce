@@ -6,7 +6,7 @@ export const logedGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const id = inject(PLATFORM_ID);
   if (isPlatformBrowser(id)) {
-    if (localStorage.getItem('userToken') !== null) {
+    if (localStorage.getItem('userToken')) {
       router.navigate(['/home']);
       return false;
     } else {

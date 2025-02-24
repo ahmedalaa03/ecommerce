@@ -35,7 +35,8 @@
         "clearcart": "Clear Cart",
         "remove": "Remove",
         "payment": "Payment",
-        "totalcartprice": "Total Cart Price : "
+        "totalcartprice": "Total Cart Price",
+        "price": "Price"
     },
     "categories": {
         "allcategories": "All Categories"
@@ -106,5 +107,16 @@
         "paymentpartners": "Payment partners",
         "getdeliveries": "Get Deliveries with FreshCart",
         "email": "Email"
+    },
+    "allorders": {
+        "allorders": "All Orders",
+        "totalorderprice": "Total Order Price",
+        "isdelivered": "Is Delivered?",
+        "ispaid": "Is Paid?",
+        "price": "Price",
+        "count": "Count",
+        "paymentmethodtype": "Payment Method Type",
+        "orderinfo": "Order Info",
+        "gohome": "Go Home"
     }
 }

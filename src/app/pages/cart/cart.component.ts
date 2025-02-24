@@ -1,9 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { CartService } from '../../core/services/cart/cart.service';
-import { ICart } from '../../shared/interfaces/icart';
 import { CurrencyPipe } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { CartService } from '../../core/services/cart/cart.service';
+import { ICart } from '../../shared/interfaces/icart';
 
 @Component({
   selector: 'app-cart',
