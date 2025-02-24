@@ -10,7 +10,7 @@ export class OrderService {
   myToken: any = localStorage.getItem('userToken');
   constructor(private httpClient: HttpClient) { }
   checkoutSession(id: string, data: object): Observable<any> {
-    return this.httpClient.post(environment.baseUrl + `/api/v1/orders/checkout-session/${id}?url=https://ecommerce-13.vercel.app/#/allorders`,
+    return this.httpClient.post(environment.baseUrl + `/api/v1/orders/checkout-session/${id}?url=https://ecommerce-13.vercel.app/#`,
       { "shippingAddress": data })
   }
   getUserOrders(id: string): Observable<any> {
