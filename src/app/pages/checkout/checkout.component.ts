@@ -24,8 +24,7 @@ export class CheckoutComponent implements OnInit {
   submitForm(): void {
 this.orderService.checkoutSession(this.cardId,this.checkoutForm.value).subscribe({
   next:(res)=>{if(res.status==='success'){
-    open('https://ecommerce-13.vercel.app/#/allorders','_self')
-    console.log(res.session.url)
+    open(res.session.url,'_self')
   }},
 error:(err)=>{console.log(err)}
 })
